@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CBX – 2K26 | National Level Tech Symposium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- PARTICLES JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+:root{
+--bg:#0f2027;
+--card:rgba(255,255,255,0.08);
+--text:#fff;
+--accent:#00f2fe;
+}
+
+body.light{
+--bg:#f4f6f9;
+--card:rgba(0,0,0,0.05);
+--text:#111;
+--accent:#0077ff;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:0.4s;
+overflow-x:hidden;
+}
+
+/* PARTICLES */
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-weight:700;
+color:var(--accent);
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+color:var(--text);
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--accent);
+}
+
+.toggle{
+cursor:pointer;
+margin-left:20px;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:none;
+flex-direction:column;
+cursor:pointer;
+}
+
+.hamburger div{
+width:25px;
+height:3px;
+background:var(--text);
+margin:4px;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+background:linear-gradient(to right,var(--accent),#4facfe);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.countdown{
+margin-top:20px;
+font-size:20px;
+background:var(--card);
+padding:15px 25px;
+border-radius:10px;
+backdrop-filter:blur(10px);
+}
+
+/* BUTTON */
+.btn{
+margin-top:25px;
+padding:12px 30px;
+background:var(--accent);
+color:black;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* SECTION */
+.section{
+padding:100px 50px;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:15px;
+backdrop-filter:blur(15px);
+transition:0.4s;
+opacity:0;
+transform:translateY(50px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px var(--accent);
+}
+
+.card h3{
+color:var(--accent);
+}
+
+.more{
+display:none;
+font-size:14px;
+margin-top:10px;
+}
+
+/* CONTACT */
+.contact{
+text-align:center;
+padding:60px;
+background:rgba(0,0,0,0.6);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{
+display:none;
+flex-direction:column;
+background:rgba(0,0,0,0.9);
+position:absolute;
+top:60px;
+right:0;
+width:200px;
+padding:20px;
+}
+.nav-links.active{display:flex;}
+.hamburger{display:flex;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">CBX – 2K26</div>
+
+<div class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#events">Events</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div>
+<span class="toggle" onclick="toggleMode()">🌙</span>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<h1>CBX – 2K26</h1>
+<p>National Level Tech Symposium | 11 March 2026</p>
+<div class="countdown" id="countdown"></div>
+<button class="btn" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdEJ1qI34OteRDLHOFhPf4B9zKYULuJLztS5B9xKseerNhHgQ/viewform?usp=header'">
+Register Now
+</button>
+</section>
+
+<!-- EVENTS -->
+<section class="section" id="events">
+<h2>🚀 CBX – 2026 Events</h2>
+
+<div class="cards">
+
+<!-- LOGO FINDING -->
+<div class="card" onclick="toggleMore(this)">
+<h3>🎯 Logo Finding</h3>
+<p><b>Team Event (5 Members)</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Suhail H, Kabilan T</p>
+
+<p><b>About:</b><br>
+An interactive competition testing brand awareness and observation skills through 3 difficulty stages.</p>
+
+<p><b>Stages:</b><br>
+• Stage 1 – Easy (Popular Logos)<br>
+• Stage 2 – Medium (Moderate Logos)<br>
+• Stage 3 – Hard (Complex & Rare Logos)</p>
+
+<p><b>Rules:</b><br>
+• Team of 5 mandatory<br>
+• All 3 stages must be completed<br>
+• No mobile / internet allowed<br>
+• Judges decision final</p>
+
+<p><b>Selection Criteria:</b><br>
+Accuracy • Time • Coordination • Overall Performance</p>
+
+<p><b>Bring:</b> Paper & Pen</p>
+</div>
+</div>
+
+<!-- TECHNICAL QUIZ -->
+<div class="card" onclick="toggleMore(this)">
+<h3>💻 Technical Quiz</h3>
+<p><b>Individual / Team of 2</b></p>
+<div class="more">
+<p><b>Platform:</b> Quizizz</p>
+<p><b>Coordinators:</b> Angel Mahima J, Aarthy R</p>
+
+<p><b>Rounds:</b><br>
+• Round 1 – Basic CS Concepts<br>
+• Round 2 – Advanced Analytical Questions</p>
+
+<p><b>Rules:</b><br>
+• Conducted only via Quizizz<br>
+• Strictly no mobile phones<br>
+• Malpractice = Disqualification<br>
+• Judges decision binding</p>
+
+<p><b>Bring:</b> Paper & Pen</p>
+</div>
+</div>
+
+<!-- BUG HUNTING -->
+<div class="card" onclick="toggleMore(this)">
+<h3>🐞 Bug Hunting</h3>
+<p><b>Individual Event</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Hariprakash R, Gowtham R, Charukesh R</p>
+
+<p><b>Stage 1:</b> Syntax, Logical & Runtime Errors</p>
+<p><b>Stage 2:</b> OOP Errors, Exception Handling, Edge Cases</p>
+
+<p><b>Rules:</b><br>
+• Strict time limit<br>
+• No external help<br>
+• Judges decision final</p>
+
+<p><b>Selection:</b> Accuracy • Output • Speed • Overall Score</p>
+</div>
+</div>
+
+<!-- CLUE SPHERE -->
+<div class="card" onclick="toggleMore(this)">
+<h3>🧩 Clue Sphere</h3>
+<p><b>Team Puzzle Event</b></p>
+<div class="more">
+<p><b>Round 1:</b> Action Identification</p>
+<p><b>Round 2:</b> Lip Sync Guessing</p>
+
+<p><b>Focus:</b> Logic • Teamwork • Communication</p>
+<p>Fastest team completing all rounds wins.</p>
+</div>
+</div>
+
+<!-- DAMSHARAS -->
+<div class="card" onclick="toggleMore(this)">
+<h3>🎭 Damsharas (Act • Draw • Hum)</h3>
+<p><b>Team of 3</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Pradeepa S, Logeshwaran S, Monishsekar G</p>
+
+<p><b>Rounds:</b><br>
+🎭 Act & Guess<br>
+🎨 Draw & Guess<br>
+🎵 Hum & Guess</p>
+
+<p>Lowest scoring team eliminated each round.</p>
+<p><b>Judging:</b> Accuracy • Speed • Coordination</p>
+</div>
+</div>
+
+<!-- WORDCRAFT -->
+<div class="card" onclick="toggleMore(this)">
+<h3>📚 WordCraft</h3>
+<p><b>Team of 2</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Sowmiya M, Sarveshwar S</p>
+
+<p><b>Round 1:</b> Bioscope Visual Flash</p>
+<p><b>Round 2:</b> Jumbled Mega Words</p>
+<p><b>Round 3:</b> Word Ladder Battle</p>
+
+<p><b>Judging:</b> Accuracy • Speed • Coordination</p>
+</div>
+</div>
+
+<!-- PAPER PRESENTATION -->
+<div class="card" onclick="toggleMore(this)">
+<h3>📊 Paper Presentation (AI & ML)</h3>
+<p><b>1–2 Members</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Harish K V, Visva Sugin N R, Janani J, Gnyanodhaya S</p>
+
+<p><b>Topic:</b> Artificial Intelligence & Machine Learning</p>
+
+<p><b>Rules:</b><br>
+• Maximum 5 Slides<br>
+• Must include Introduction & Conclusion<br>
+• Innovation & Clarity prioritized</p>
+</div>
+</div>
+
+<!-- TREASURE HUNT -->
+<div class="card" onclick="toggleMore(this)">
+<h3>🗺 Treasure Hunt</h3>
+<p><b>Team of 5</b></p>
+<div class="more">
+<p><b>Coordinators:</b> Karthik Ramanathan S R, Vigneshwaran M</p>
+
+<p>Multi-stage clue-solving adventure.</p>
+
+<p><b>Rules:</b><br>
+• WhatsApp clue sharing allowed<br>
+• No disturbance to college property<br>
+• Judges decision final</p>
+
+<p><b>Judging:</b> Accuracy • Problem Solving • Coordination</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>📞 Contact & Venue</h2>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:30px;">
+
+<div style="background:var(--card);padding:25px;border-radius:15px;width:300px;">
+<h3>🏫 Venue</h3>
+<p>K Ramakrishnan College of Engineering</p>
+<p>Samayapuram, Trichy</p>
+<p>📅 11 March 2026</p>
+</div>
+
+<div style="background:var(--card);padding:25px;border-radius:15px;width:300px;">
+<h3>👩‍🏫 Staff Coordinators</h3>
+<p>Mrs. N. G. Gayathri<br>📞 8754276876</p>
+<p>Mrs. M. Karthika<br>📞 9514043498</p>
+</div>
+
+<div style="background:var(--card);padding:25px;border-radius:15px;width:300px;">
+<h3>🎓 Student Coordinators</h3>
+<p>Visva Sugin N R<br>📞 9087277475</p>
+<p>Harish K V<br>📞 8680082700</p>
+</div>
+
+</div>
+
+<p style="margin-top:40px;font-size:14px;color:gray;">
+© 2026 CBX – 2K26 | National Level Tech Symposium
+</p>
+</section>
+
+<script>
+
+/* DARK LIGHT MODE */
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+/* MOBILE MENU */
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+
+/* EXPAND EVENT */
+function toggleMore(card){
+let more = card.querySelector(".more");
+more.style.display = more.style.display==="block"?"none":"block";
+}
+
+/* COUNTDOWN */
+var eventDate = new Date("March 11, 2026 00:00:00").getTime();
+var timer = setInterval(function(){
+var now = new Date().getTime();
+var distance = eventDate - now;
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds = Math.floor((distance%(1000*60))/1000);
+document.getElementById("countdown").innerHTML =
+"⏳ "+days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
+},1000);
+
+/* SCROLL REVEAL */
+const cards = document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+cards.forEach(card=>{
+let top = card.getBoundingClientRect().top;
+if(top < window.innerHeight - 50){
+card.classList.add("show");
+}
+});
+});
+
+/* PARTICLES CONFIG */
+particlesJS("particles-js",{
+"particles":{"number":{"value":80},
+"size":{"value":3},
+"move":{"speed":2},
+"line_linked":{"enable":true},
+"color":{"value":"#00f2fe"}},
+"interactivity":{"events":{"onhover":{"enable":true,"mode":"repulse"}}}
+});
+</script>
+
+</body>
+</html>
